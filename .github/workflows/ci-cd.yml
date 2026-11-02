@@ -31,16 +31,6 @@ jobs:
       - name: Build and test with Maven
         run: ./mvnw -B clean verify
 
-      - name: Build and analyze with SonarQube
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: >
-          ./mvnw -B
-          org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
-          -Dsonar.projectKey=Spring-PetClinic
-          -Dsonar.projectName=Spring-PetClinic
-
       - name: Archive production JAR
         uses: actions/upload-artifact@v4
         with:
