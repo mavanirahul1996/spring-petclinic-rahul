@@ -1,5 +1,7 @@
 # Spring PetClinic — Java CI Learning Project
 
+[![Java CI with Maven](https://github.com/mavanirahul1996/spring-petclinic-rahul/actions/workflows/maven-build.yml/badge.svg)](https://github.com/mavanirahul1996/spring-petclinic-rahul/actions/workflows/maven-build.yml)
+
 A personal DevOps learning repository based on the Spring PetClinic sample application. The focus of this repository is building and verifying a Java application with **Maven and GitHub Actions**, while practising local database services with Docker Compose.
 
 > This repository is a learning copy of the upstream [Spring PetClinic project](https://github.com/spring-projects/spring-petclinic). The original application documentation and licence remain applicable.
@@ -34,7 +36,7 @@ flowchart TD
 
 **What it does not currently do:** deploy to EC2, publish a container image, or enforce a SonarQube quality gate. These are possible future improvements, not completed pipeline stages.
 
-[View GitHub Actions runs](../../actions)
+[View GitHub Actions runs](https://github.com/mavanirahul1996/spring-petclinic-rahul/actions)
 
 ## Run locally
 
