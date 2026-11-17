@@ -34,7 +34,9 @@ flowchart TD
 
 **What the workflow currently does:** checks out the code, configures Java 17 with Maven dependency caching, and runs `./mvnw -B verify`.
 
-**What it does not currently do:** deploy to EC2, publish a container image, or enforce a SonarQube quality gate. These are possible future improvements, not completed pipeline stages.
+**EC2 deployment:** a separate job is available through manual workflow dispatch. It is not run automatically on every push. The previous deployment attempt reached the SSH stage but timed out connecting to the configured EC2 host on port 22. Confirm the EC2 instance is running, the host secret is current, and its security group allows SSH from the GitHub-hosted runner before selecting `deploy_to_ec2=true`.
+
+**Not included:** container publishing or a SonarQube quality gate.
 
 [View GitHub Actions runs](https://github.com/mavanirahul1996/spring-petclinic-rahul/actions)
 
@@ -123,3 +125,8 @@ This project is useful for practising:
 ---
 
 **Upstream project:** [spring-projects/spring-petclinic](https://github.com/spring-projects/spring-petclinic). This repository should be understood as a personal learning and CI configuration exercise, not as the original Spring PetClinic project.
+
+
+## Manual EC2 deployment
+
+After confirming EC2 network access and the `EC2_HOST` and `EC2_PRIVATE_KEY` repository secrets, open **Actions → Java CI/CD Pipeline with Maven → Run workflow** and select `deploy_to_ec2=true`. Normal pushes and pull requests run build and test only.
